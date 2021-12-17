@@ -17,7 +17,7 @@ public class SessionManager {
     private final Map<String, Object> sessionStore = new ConcurrentHashMap<>();
 
     /**
-     * 세션 생성
+     * 세션 생성.
      */
     public void createSession(Object value, HttpServletResponse response) {
 
