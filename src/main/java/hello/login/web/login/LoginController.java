@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 
 @Slf4j
 @Controller
@@ -131,14 +130,14 @@ public class LoginController {
                           HttpServletRequest request) {
 
         if (bindingResult.hasErrors()) {
-            return "login/loginForm";
+            return "loginForm";
         }
 
         Member loginMember = loginService.login(form.getLoginId(), form.getPassword());
 
         if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 패스워드가 일치하지 않습니다.");
-            return "login/loginForm";
+            return "loginForm";
         }
 
         // 로그인 성공 처리
